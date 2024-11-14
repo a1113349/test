@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All-in-One Responsive Website</title>
+    <style>
+        /* 全站樣式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #0078d4;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #0056a3;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px;
+            background-color: #e8f4ff;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        .content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .card {
+            background-color: #f8f8f8;
+            padding: 20px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+        }
+
+        /* 響應式樣式 */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .card {
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 頁面標頭 -->
+    <header>
+        <h1>My Responsive Website</h1>
+        <p>Explore HTML, jQuery, and RWD in one place</p>
+    </header>
+
+    <!-- 導覽列 -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- 英雄區塊 -->
+    <div class="hero">
+        <h1>Welcome to the Future of Web Design</h1>
+        <button id="hero-button">Click Me</button>
+        <p id="hero-text" style="display: none;">You discovered a hidden message!</p>
+    </div>
+
+    <!-- 主要內容 -->
+    <div class="content">
+        <div id="features" class="card">
+            <h3>Responsive Design</h3>
+            <p>This website adjusts seamlessly across devices.</p>
+        </div>
+        <div class="card">
+            <h3>Interactive Elements</h3>
+            <button id="toggle-content">Show More</button>
+            <p id="extra-content" style="display: none;">Here is some extra information that appears on demand!</p>
+        </div>
+        <div class="card">
+            <h3>Powered by jQuery</h3>
+            <p>Click the button below to load dynamic content:</p>
+            <button id="load-data">Load Content</button>
+            <div id="dynamic-data" style="margin-top: 10px;"></div>
+        </div>
+    </div>
+
+    <!-- 頁面底部 -->
+    <footer>
+        <p>&copy; 2024 My Responsive Website. All rights reserved.</p>
+    </footer>
+
+    <!-- jQuery 引入與互動功能 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 英雄按鈕點擊事件
+            $("#hero-button").click(function () {
+                $("#hero-text").fadeToggle();
+            });
+
+            // 顯示更多資訊
+            $("#toggle-content").click(function () {
+                $("#extra-content").slideToggle();
+            });
+
+            // 動態載入內容
+            $("#load-data").click(function () {
+                $("#dynamic-data").html("<p>Dynamic content loaded! 🚀</p>");
+            });
+        });
+    </script>
+</body>
+</html>
